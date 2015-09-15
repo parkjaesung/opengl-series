@@ -13,3 +13,4 @@ build/
 # linux build output
 platforms/linux/*/bin/
 platforms/linux/*/obj/
+/.project
