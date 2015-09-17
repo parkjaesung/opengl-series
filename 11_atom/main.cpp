@@ -14,6 +14,32 @@ void SetupRC()
     glEnable(GL_DEPTH_TEST);  //add
     glFrontFace(GL_CCW);      //add
     glEnable(GL_CULL_FACE);   //add
+    
+    
+    glEnable(GL_LIGHTING);
+    
+    GLfloat amb[] = {0.5f, 0.5f, 0.5f,1.0f};
+    GLfloat diff[] = { 0.3f,0.3f,0.3f,1.0f};
+    
+    glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diff);
+
+    GLfloat lightPos[] = {0.0f, 0.0f, -100.0f, 1.0f};
+    glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+    glEnable(GL_LIGHT0);
+    
+    GLfloat amb2[] = {0.5f, 0.5f, 0.5f,1.0f};
+    GLfloat diff2[] = { 0.3f,0.3f,0.3f,1.0f};
+    
+    glLightfv(GL_LIGHT1, GL_AMBIENT, amb2);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, diff2);
+    
+    GLfloat lightPos2[] = {1.0f, 0.0f, -100.0f, 1.0f};
+    glLightfv(GL_LIGHT1, GL_POSITION, lightPos2);
+    glEnable(GL_LIGHT1);
+    
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 }
 
 void TimerFunc(int value)
@@ -59,22 +85,23 @@ void RenderScene() {
     
     glPushMatrix();
     glRotatef(fElect1, 0.0f,1.0f,0.0f);
-    glTranslatef(90.0f,0.0f,0.0f);
+    glTranslatef(80.0f,0.0f,0.0f);
     glColor3ub(255,100,0);
     glutSolidSphere(6.0f,15,15);
-    glPopMatrix();
 
     glPushMatrix();
     glRotatef(fElect1, 0.0f,1.0f,0.0f);
-    glTranslatef(90.0f,0.0f,0.0f);
+    glTranslatef(-20.0f,0.0f,0.0f);
     glColor3ub(100,255,255);
     glutSolidSphere(6.0f,15,15);
+    glPopMatrix();
     glPopMatrix();
     
     glPushMatrix();
     glRotatef(45.0f, 0.0f,0.0f, 1.0f);
     glRotatef(fElect1, 0.0f,1.0f,0.0f);
     glTranslatef(-70.0f, 0.0f,0.0f);
+    glColor3ub(0,255,0);
     glutSolidSphere(6.0f,15,15);
     glPopMatrix();
     
